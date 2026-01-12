@@ -58,3 +58,8 @@ FROM Seat)
 
 select id, student from T
 order by id
+
+SELECT
+  ROW_NUMBER() OVER(ORDER BY IF(id%2 = 0, id - 1, id + 1)) AS id, -- у четного отнимаем к нечету прибавляем так как последнее не скем менять то ост как есть если оно нечет
+  student
+FROM Seat;

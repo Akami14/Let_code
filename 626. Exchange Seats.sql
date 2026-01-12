@@ -1,4 +1,4 @@
-Table: Seat
+/*Table: Seat
 
 +-------------+---------+
 | Column Name | Type    |
@@ -14,7 +14,6 @@ The ID sequence always starts from 1 and increments continuously.
 Write a solution to swap the seat id of every two consecutive students. If the number of students is odd, the id of the last student is not swapped.
 
 Return the result table ordered by id in ascending order.
-/*
 The result format is in the following example.
 
  
@@ -51,9 +50,9 @@ Note that if the number of students is odd, there is no need to change the last 
 WITH T AS (
 SELECT student,
 CASE 
-    WHEN ID % 2 != 0 AND id !=  (select count(*) from seat) THEN ID+1
-    WHEN ID % 2 != 0 AND id = (select count(*) from seat) THEN ID
-    ELSE ID-1
+    WHEN ID % 2 != 0 AND id !=  (select count(*) from seat) THEN ID+1 -- id не четное и id не последнее
+    WHEN ID % 2 != 0 AND id = (select count(*) from seat) THEN ID -- id не четное и id  последнее
+    ELSE ID-1 -- id нечет
     END AS 'id' 
 FROM Seat)
 

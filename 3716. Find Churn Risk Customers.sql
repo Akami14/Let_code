@@ -1,4 +1,5 @@
 /*
+
 Table: subscription_events
 
 +------------------+---------+
